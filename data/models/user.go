@@ -19,10 +19,10 @@ const (
 
 type User struct {
 	Base
-	Name     string         `gormm:"not null" json:"name"`
-	Email    string         `gormm:"uuniqueIndex;not null" json:"email"`
-	Phone    string         `gormm:"uuniqueIndex" json:"phone"`
-	Password string         `gormm:"not null" json:"-"`
+	Name     string         `gorm:"not null" json:"name"`
+	Email    string         `gorm:"uniqueIndex;not null" json:"email"`
+	Phone    string         `gorm:"uniqueIndex" json:"phone"`
+	Password string         `gorm:"not null" json:"-"`
 	Role     RoleEnum       `gorm:"type:varchar(20);not null" json:"role"`
 	Status   UserStatusEnum `gorm:"type:varchar(20);default:'ACTIVE'" json:"status"`
 
