@@ -10,11 +10,11 @@ func MigrateDB() {
 		&models.User{},
 		&models.BusinessProfile{},
 		&models.RiderProfile{},
-		&models.Delivery{},
-		&models.Payment{},
-		&models.Invoice{},
-		&models.Commission{},
-		&models.Notification{},
+		//&models.Delivery{},
+		//&models.Payment{},
+		//&models.Invoice{},
+		//&models.Commission{},
+		//&models.Notification{},
 	)
 	if err != nil {
 		log.Fatalf("failed to migrate database: %v", err)
