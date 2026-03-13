@@ -17,5 +17,5 @@ type RiderProfile struct {
 	EarningsBalance float64         `gorm:"type:decimal(12,2);default:0"       json:"earnings_balance"`
 	Status          UserStatusEnum  `gorm:"type:varchar(20);default:'PENDING'" json:"status"`
 	User            User            `gorm:"foreignKey:UserID"  json:"-"`
-	//Deliveries []Delivery `gorm:"foreignKey:RiderID" json:"deliveries,omitempty"`
+	Deliveries      []Delivery      `gorm:"foreignKey:RiderID" json:"deliveries,omitempty"`
 }
