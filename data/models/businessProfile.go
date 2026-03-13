@@ -8,6 +8,6 @@ type BusinessProfile struct {
 	SubscriptionPlan string         `gorm:"default:'free'"                 json:"subscription_plan"`
 	Status           UserStatusEnum `gorm:"type:varchar(20);default:'ACTIVE'" json:"status"`
 
-	User User `gorm:"foreignKey:UserID"     json:"-"`
-	//Deliveries []Delivery `gorm:"foreignKey:BusinessID" json:"deliveries,omitempty"`
+	User       User       `gorm:"foreignKey:UserID"     json:"-"`
+	Deliveries []Delivery `gorm:"foreignKey:BusinessID" json:"deliveries,omitempty"`
 }
