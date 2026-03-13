@@ -29,5 +29,5 @@ type User struct {
 
 	BusinessProfile *BusinessProfile `gorm:"foreignKey:UserID" json:"businessProfile,omitempty"`
 	RiderProfile    *RiderProfile    `gorm:"foreignKey:UserID" json:"riderProfile,omitempty"`
-	//Notifications   []Notification   `gorm:"foreignKey:UserID" json:"notifications,omitempty"`
+	Notifications   []Notification   `gorm:"foreignKey:UserID" json:"notifications,omitempty"`
 }
