@@ -7,6 +7,10 @@ import (
 	"github.com/google/uuid"
 )
 
+type UploadProfilePictureResponse struct {
+	ProfilePicture string `json:"profile_picture"`
+}
+
 type UserResponse struct {
 	ID        uuid.UUID             `json:"id"`
 	Name      string                `json:"name"`
