@@ -136,3 +136,17 @@ func ToCommissionResponse(commission models.Commission) responses.CommissionResp
 		UpdatedAt:   commission.UpdatedAt,
 	}
 }
+
+func ToBusinessProfileResponse(bp models.BusinessProfile) responses.BusinessProfileResponse {
+	id, _ := uuid.Parse(bp.UserID)
+	return responses.BusinessProfileResponse{
+		ID:               bp.ID,
+		UserID:           id,
+		BusinessName:     bp.BusinessName,
+		BusinessAddress:  bp.BusinessAddress,
+		SubscriptionPlan: bp.SubscriptionPlan,
+		Status:           bp.Status,
+		CreatedAt:        bp.CreatedAt,
+		UpdatedAt:        bp.UpdatedAt,
+	}
+}
