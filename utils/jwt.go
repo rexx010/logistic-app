@@ -52,3 +52,20 @@ func ValidateToken(tokenStr string) (*JWTClaims, error) {
 	}
 	return claims, nil
 }
+
+// GenerateRefreshToken creates a long-lived token (7 days) containing only
+// the userID. The client sends this back to get a new access token.
+// It has fewer claims than the access token — no role/email needed
+// since it's only used to issue a new access token, not to authorise requests.
+func GenerateRefreshToken(userID uuid.UUID) (string, error) {
+	claims := JWTClaims{
+		UserID: userID,
+		RegisteredClaims: jwt.RegisteredClaims{
+			ExpiresAt: jwt.NewNumericDate(time.Now().Add(7 * 24 * time.Hour)),
+			IssuedAt:  jwt.NewNumericDate(time.Now()),
+			Issuer:    "logisticApp",
+		},
+	}
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+	return token.SignedString([]byte(config.AppConfig.JWTSecret))
+}
